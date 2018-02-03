@@ -1,0 +1,14 @@
+{
+	"disableCompileOnSave": true,
+    "indentSize": 4,
+    "tabSize": 4,
+	"compilerOptions": {
+        "target": "es5",
+        "lib": ["es6"],
+        "types": ["reflect-metadata"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    }
+}
