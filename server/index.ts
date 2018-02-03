@@ -2,7 +2,6 @@ import * as path 			from 'path'
 import * as express 		from 'express'
 import * as bodyParser 		from 'body-parser'
 import chalk 				from 'chalk'
-import routes 				from './routes'
 import { GLOBAL } 			from './global'
 import { RouteBinder } 		from './routes/route-binder.route'
 import { IOC } 				from './ioc'
@@ -25,6 +24,12 @@ const success 			= chalk.green
 ========================================================================== */
 
 const app = express()
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*')
+	res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE')
+	res.header('Access-Control-Allow-Headers', 'Content-Type')
+	next()
+})
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
