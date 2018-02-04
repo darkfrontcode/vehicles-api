@@ -11,8 +11,9 @@ export class RouteBinder
         const vehiclesController = container.get(VehiclesController)
 
         app.route(VehiclesController.url)
-            .get(async (req, res, next) => await vehiclesController.listAll(req, res, next))
             .post(async (req, res, next) => await vehiclesController.add(req, res, next))
+            .get(async (req, res, next) => await vehiclesController.listAll(req, res, next))
+            .put(async (req, res, next) => await vehiclesController.edit(req, res, next))
             .delete(async (req, res, next) => await vehiclesController.remove(req, res, next))
     }
 }

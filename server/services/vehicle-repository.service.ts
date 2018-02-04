@@ -22,7 +22,7 @@ export class VehicleRepositoryService implements IVehicleRepository
 			}
 			catch(err)
 			{
-				reject(new Array<IVehicle>())
+				resolve(new Array<IVehicle>())
 			}
 		})
 	}
@@ -37,7 +37,7 @@ export class VehicleRepositoryService implements IVehicleRepository
 			}
 			catch(err)
 			{
-				reject(false)
+				resolve(false)
 			}
 		})
 		
@@ -49,10 +49,33 @@ export class VehicleRepositoryService implements IVehicleRepository
 			try
 			{
 				for(let key of arr)
-					this._vehicleService.vehicles = this._vehicleService.vehicles
-															.filter(vehicle => (+vehicle.id) !== (+key.id))
+					this._vehicleService.vehicles = this._vehicleService.vehicles.filter(vehicle => (+vehicle.id) !== (+key.id))
 
 				resolve(true)
+			}
+			catch(err)
+			{
+				resolve(false)
+			}
+		})
+	}
+
+	public async edit(vehicle: IVehicle) : Promise<boolean>
+	{
+		return await new Promise<boolean>((resolve, reject) => {
+			try
+			{
+				const key = this._vehicleService.vehicles.findIndex(v => (+v.id) === (+vehicle.id))
+
+				if(key === -1)
+				{
+					resolve(false)
+				}
+				else
+				{
+					this._vehicleService.vehicles[key] = { ...this._vehicleService.vehicles[key], ...vehicle }
+					resolve(true)
+				}
 			}
 			catch(err)
 			{

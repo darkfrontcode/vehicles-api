@@ -27,12 +27,17 @@ export class VehiclesController
 
 	public async add(req, res, next) : Promise<void>
 	{
-		await this._vehicleRepositoryService.add(req.body) ? res.sendStatus(201) : res.sendStatus(500)
+		await this._vehicleRepositoryService.add(req.body) ? res.sendStatus(201) : res.sendStatus(404)
 	}
 
 	public async remove(req, res, next) : Promise<void>
 	{
-		await this._vehicleRepositoryService.remove(req.body) ? res.sendStatus(202) : res.sendStatus(500)
+		await this._vehicleRepositoryService.remove(req.body) ? res.sendStatus(202) : res.sendStatus(404)
+	}
+
+	public async edit(req, res, next) : Promise<void>
+	{
+		await this._vehicleRepositoryService.edit(req.body) ? res.sendStatus(200) : res.sendStatus(404)
 	}
 
 }
