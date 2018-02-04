@@ -32,7 +32,7 @@ export class VehiclesController
 
 	public async remove(req, res, next) : Promise<void>
 	{
-		await this._vehicleRepositoryService.remove(+req.body.id) ? res.sendStatus(202) : res.sendStatus(500)
+		await this._vehicleRepositoryService.remove(req.body) ? res.sendStatus(202) : res.sendStatus(500)
 	}
 
 }

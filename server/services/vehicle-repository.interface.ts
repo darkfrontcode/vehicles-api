@@ -4,5 +4,5 @@ export interface IVehicleRepository
 {
 	listAll() : Promise<Array<IVehicle>>
 	add(vehicle: IVehicle) : void
-	remove(id:number) : void
+	remove(arr: Array<{[key:string]:number}>) : Promise<boolean>
 }

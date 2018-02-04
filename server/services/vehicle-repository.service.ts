@@ -43,17 +43,20 @@ export class VehicleRepositoryService implements IVehicleRepository
 		
 	}
 
-	public async remove(id:number) : Promise<boolean>
+	public async remove(arr: Array<{[key:string]:number}>) : Promise<boolean>
 	{
 		return await new Promise<boolean>((resolve, reject) => {
 			try
 			{
-				this._vehicleService.vehicles = this._vehicleService.vehicles.filter((vehicle:IVehicle) => vehicle.id !== id)
+				for(let key of arr)
+					this._vehicleService.vehicles = this._vehicleService.vehicles
+															.filter(vehicle => (+vehicle.id) !== (+key.id))
+
 				resolve(true)
 			}
 			catch(err)
 			{
-				reject(false)
+				resolve(false)
 			}
 		})
 	}
