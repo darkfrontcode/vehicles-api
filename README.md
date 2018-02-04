@@ -1,20 +1,16 @@
-# :zap: Vehicles REST API :zap:
+# :zap: Vehicles API :zap:
 
-A simple REST API build on top of [ts-node](https://github.com/TypeStrong/ts-node) and [InversifyJS](https://github.com/inversify/InversifyJS) to inversion of controll (IOC)
+A simple API build on top of [ts-node](https://github.com/TypeStrong/ts-node) and [InversifyJS](https://github.com/inversify/InversifyJS) to inversion of controll (IOC)
 <br>
 <br>
 
 
-> Basic operations are enabled 
+> CRUD operations are enabled 
 
-:rocket:  **GET**
-<br>
 :rainbow: **POST**
 <br>
-:dragon_face: **PUT**
+:rocket:  **GET**
 <br>
-:house_with_garden: **DELETE**
+ :house_with_garden: **PUT**
 <br>
-:ocean: **PATCH**
-<br>
-:train: **OPTIONS**
+:dragon_face: **DELETE**
